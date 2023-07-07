@@ -2,7 +2,7 @@
 const createError = require("http-errors");
 
 function getService() {
-  return strapi.plugins["github-actions"].services["github-actions"];
+  return strapi.plugins["github-actions-workflowid"].services["github-actions"];
 }
 
 module.exports = {

@@ -1,6 +1,6 @@
 {
-  "name": "strapi-plugin-github-actions",
-  "version": "0.1.0",
+  "name": "strapi-plugin-github-actions-workflowid",
+  "version": "0.1.1",
   "description": "This plugin allows you to trigger a GitHub action with Strapi",
   "strapi": {
     "name": "github-actions",
@@ -25,7 +25,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lodi-g/strapi-plugin-github-actions.git"
+    "url": "https://github.com/sebpic1/strapi-plugin-github-actions.git"
   },
   "jest": {
     "testPathIgnorePatterns": [

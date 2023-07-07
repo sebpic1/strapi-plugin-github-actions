@@ -50,21 +50,19 @@ module.exports = {
       .findOne({ id });
 
     const workflow = populateWorkflowWithEnvPat(dbWorkflow);
-    const url = `https://api.${workflow.github_host}/repos/${workflow.repo_owner}/${workflow.repo_name}/dispatches`;
-
-    await axios.post(
-      url,
+    const res = await axios.post(`https://api.github.com/repos/${workflow.repo_owner}/${workflow.repo_name}/actions/workflows/${workflow.name}/dispatches`,
       {
-        event_type: workflow.event_type,
-        client_payload: workflow.client_payload,
+        ref: "main",
+        inputs: {},
       },
       {
         headers: {
-          Accept: "application/vnd.github.everest-preview+json",
-          Authorization: `token ${workflow.pat}`,
+          Accept: 'application/vnd.github+json', Authorization: `token ${workflow.pat}`,
         },
       }
     );
+
+    console.log(res)
 
     await strapi
       .query("workflow", "github-actions")
